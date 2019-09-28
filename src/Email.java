@@ -17,6 +17,10 @@ public class Email {
         //ask the user for his department
         this.department = setDepartment();
         System.out.println("Department: " + this.department);
+
+        //generate password for the current user
+        this.password = generateRandomPassword(10);
+        System.out.println("Your new password is: " + this.password);
     }
 
     //helper function
@@ -36,6 +40,25 @@ public class Email {
             default:
                 return "";
         }
+    }
+
+    //helper function to generate random password of selected length;
+    private String generateRandomPassword(int length) {
+        StringBuilder passwordSet = new StringBuilder();
+        String letters = "abcdefghijklmnopqrstuvwxyz";
+        passwordSet.append(letters);
+        passwordSet.append(letters.toUpperCase());
+        passwordSet.append("0123456789");
+        passwordSet.append("!@$&/`#$");
+
+        char[] password = new char[length];
+
+        for(int i = 0; i < length; i++) {
+            int random = (int) (Math.random() * passwordSet.length());
+            password[i] = passwordSet.charAt(random);
+        }
+
+        return password.toString();
     }
 
 
