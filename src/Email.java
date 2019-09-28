@@ -19,15 +19,13 @@ public class Email {
 
         //ask the user for his department
         this.department = setDepartment();
-        System.out.println("Department: " + this.department);
 
         //generate password for the current user
         this.password = generateRandomPassword(PASSWORD_LENGTH);
-        System.out.println("Your new password is: " + this.password);
 
         //combine all parts to generate the actual email
-        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + COMPANY_SUFFIX;
-        System.out.println("Your Email is: " + email);
+        email = department.equals("") ? firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + COMPANY_SUFFIX :
+                                        firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + COMPANY_SUFFIX;
     }
 
     //helper function
@@ -93,5 +91,13 @@ public class Email {
 
     public int getMailboxCapacity() {
         return mailboxCapacity;
+    }
+
+    public String showInfo() {
+        return "\nDISPLAY NAME: " + this.firstName + " " +this.lastName +
+                "\nCOMPANY EMAIL: " + email +
+                "\nPASSWORD: " + password +
+                "\nDEPARTMENT: " + department +
+                "\nMAILBOX CAPACITY: " + mailboxCapacity + "mb\n";
     }
 }
