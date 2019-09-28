@@ -8,6 +8,9 @@ public class Email {
     private String department;
     private String alternativeEmail;
     private int mailboxCapacity;
+    private final int PASSWORD_LENGTH = 10;
+    private String email;
+    private final String COMPANY_SUFFIX = "somecompany.com";
 
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
@@ -19,8 +22,12 @@ public class Email {
         System.out.println("Department: " + this.department);
 
         //generate password for the current user
-        this.password = generateRandomPassword(10);
+        this.password = generateRandomPassword(PASSWORD_LENGTH);
         System.out.println("Your new password is: " + this.password);
+
+        //combine all parts to generate the actual email
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + COMPANY_SUFFIX;
+        System.out.println("Your Email is: " + email);
     }
 
     //helper function
