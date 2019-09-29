@@ -27,7 +27,7 @@ or download the project directory.
 Open command line and `cd` to the project directory.
 Type the following command in order to compile and execute the program:
 ```
-./ScriptName.sh
+./CompileProgram.sh
 ```
 #### Run from IDE
 If you want to run the project from an IDE of your choice:
