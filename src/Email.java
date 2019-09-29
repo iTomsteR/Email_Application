@@ -12,9 +12,15 @@ public class Email {
     private String email;
     private final String COMPANY_SUFFIX = "somecompany.com";
 
-    public Email(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Email() {
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Please enter your first name!");
+        this.firstName = in.nextLine();
+
+        System.out.println("Please enter your last name!");
+        this.lastName = in.nextLine();
         System.out.println("Email created for user: " + this.firstName + " " + this.lastName);
 
         //ask the user for his department
@@ -63,7 +69,7 @@ public class Email {
             password[i] = passwordSet.charAt(random);
         }
 
-        return password.toString();
+        return new String(password);
     }
 
     // Change the password.
